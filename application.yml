@@ -1,16 +1,26 @@
-spring:
-  profiles:
-    active:
-      - dev
----
-spring:
-  profiles: dev  #开发环境
-  application:
-    name: microservicecloud-config-atguigu-dev
----
-spring:
-  profiles: test  #测试环境
-  application:
-    name: microservicecloud-config-atguigu-test
-
 # 请保存UTF-8格式
+spring: 
+  profiles: 
+    active: -dev
+---
+server:
+  port: 8201
+spring: 
+  profiles: dev
+  application: 
+    name: microservice-config-client
+eureka: 
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+---
+server: 
+  port: 8201
+spring:
+  profiles: test
+  application:
+    name: microsoft-config-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7002/eureka
